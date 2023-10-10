@@ -1,0 +1,124 @@
+There are a certain number of cities in a country, some of which are connected with bidirectional roads. The number of roads is one less the number of cities, and it is possible to travel between any pair of cities using the roads. The distance between cities is the minimum number of roads one has to cross when traveling between them. How many ways are there to build exactly 3 hotels, each in a different city, such that the distance between every pair of hotels is equal?
+
+ 
+
+For example, let's say there are n = 5 cities, and roads = [[1, 2], [1, 3], [1, 4], [1, 5]]. This means that city 1 is connected with roads to all other cities, as seen below:
+
+
+
+There are 4 ways to build exactly 3 hotels, each in a different city, so that the distance between every pair of hotels is equal:
+
+Build hotels in cities 2, 3, and 4.
+Build hotels in cities 2, 3, and 5.
+Build hotels in cities 2, 4, and 5.
+Build hotels in cities 3, 4, and 5.
+ 
+
+In all these cases, the distance between every pair of hotels is 2. Because there are 4 ways to accomplish this, the answer is 4.
+
+ 
+
+Function Description
+
+Complete the function numberOfWays in the editor below. The function must return an integer denoting the number of ways to build 3 hotels in such a way that the distance between every pair of hotels is equal.
+
+ 
+
+numberOfWays has the following parameter:
+
+    int roads[n-1][2]: a 2-dimensional array of integers, 0-indexed, such that roads[i][0] and roads[i][1] denote cities that are connected by the ith road
+
+Returns:
+
+    int: the number of ways to build 3 hotels in such a way that the distance between every pair of hotels is equal
+
+ 
+
+Constraints
+
+4 ≤ n ≤ 50 
+
+1 ≤ roads[i][0] ≤ n
+
+1 ≤ roads[i][1] ≤ n
+
+roads[i][0] ≠ roads[i][1]
+
+
+A website is programming an authentication system that will accept a password either if it's the correct password or if it's the correct password with a single character appended to it. In this challenge, your task is to implement such a system, specifically using a hashing function. Given a list of events in which either a password is set or authorization is attempted, determine if each authorization attempt will be successful or not.
+
+ 
+
+The hashing function that will be used in this problem is as follows. Let f(x) be a function that takes a character and returns its decimal character code in the ASCII table. For instance f('a') = 97, f('B') = 66, and f('9') = 57. (You can find all ASCII character codes here: ASCII table.) Then, let h(s) be the hashing function that takes a string and hashes it in the following way, where p = 131 and M = 109+7 :
+
+ 
+
+h(s) := (s[0]*P(n-1) + s[1]*P(n-2) + s[2]*P(n-3) + ... + s[n-2]*P + s[n-1]) mod M
+
+ 
+
+For instance, if s = "cAr1", then the formula would be as follows:
+
+ 
+
+h(s) = (f('c')*1313 + f('A')*1312 + f('r')*131 + f('1')) mod 109+7 = 223691457
+
+ 
+
+Your system will be tested on q event types, each of which will be one of the following:
+
+setPassword(s) := sets the password to s
+
+authorize(x) := tries to sign in with integer x. This event must return 1 if x  is either the hash of the current password or the hash of the current password with a single character appended to it. Otherwise, this event must return 0.
+
+ 
+
+Consider the following example. There are 6 events to be handled:
+
+setPassword("cAr1")
+
+authorize(223691457)
+
+authorize(303580761)
+
+authorize(100)
+
+setPassword("d")
+
+authorize(100)
+
+ 
+
+As we know from the above example, h("cAr1") = 223691457, so the second event will return 1. The third event will also return 1 because 303580761 is the hash value of the string "cAr1a", which is equal to the current password with the character 'a' appended to it. The fourth event will return 0 because 100 is not a hash of the current password or of the current password with a single character appended to it. In the fifth event, the current password is set to "d", and the sixth event will return 1 because h("d") = 100. Therefore, the array you would return is [1, 1 0, 1], corresponding to the success or failure of the authorization events.
+
+ 
+
+Function Description
+
+Complete the function authEvents in the editor below.
+
+ 
+
+authEvents has the following parameter(s):
+
+    string events[q][2]: a 2-dimensional array of strings denoting the event types and event parameters
+
+Returns:
+
+    int[number of authorize events]: an array of integers, either 1 or 0, corresponding to the success (1) or failure (0) of each authorization attempt
+
+ 
+
+Constraints
+
+2 ≤ q ≤ 105
+
+1 ≤ length of s ≤ 9, where s is a parameter of the setPassword event
+
+0 ≤ x < 109+7, where x is the integer value of the parameter of the authorize event
+
+The first event will always be a setPassword event.
+
+There will be at least one authorize event.
+
+s contains only lowercase and uppercase English letters and digits.

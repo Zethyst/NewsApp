@@ -1,11 +1,8 @@
-# Getting Started with Create React App
+<h1 align="center">NewsRadar - Your Trusted News Source</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>NewsRadar is a sleek and modern news website built to deliver the latest and most relevant news to users. With a user-friendly interface and a wide range of categories, NewsRadar keeps you informed on everything that matters. Developed with React.js, this project showcases responsive design, efficient user interactions, and seamless navigation. Stay updated with NewsRadar, your go-to news destination! </p>
 
-## Available Scripts
-
-In the project directory, you can run:
-
+[Visit Now](https://zethyst.github.io/Newsapp/) 🚀
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -14,57 +11,49 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## 🖥️ Tech Stack
+**Frontend:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![reactjs](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)&nbsp;
+![react-router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)&nbsp;
+![bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)&nbsp;
+![tailwindcss](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)&nbsp;
 
-### `npm run build`
+**Backend:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)&nbsp;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Deployed On:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Vercel](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
-### `npm run eject`
+## 📌 Key Features:
+<dl>
+<dt>Explore Various News Categories:</dt><dd> Explore a diverse range of news categories, including General, Business, Entertainment, Health, Science, Sports, and Technology.</dd>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<dt>Instant Search Functionality:</dt><dd> Quickly find articles on any topic with real-time search, ensuring you stay updated with the latest news that matters to you.</dd>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<dt>User-Friendly Navigation:</dt><dd> Navigate effortlessly through the app using an intuitive and collapsible menu, optimized for mobile devices.</dd>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<dt>Responsive Design:</dt><dd> Enjoy a seamless viewing experience across different devices, as NewsRadar's responsive design adapts to both desktop and mobile screens.</dd>
+</dl>
+<dt>Modern Web Technologies:</dt><dd> Built using cutting-edge web technologies such as React, Tailwind and React Router, ensuring a modern and feature-rich application.</dd>
+</dl>
+<dt>Stay Up-to-Date Easily:</dt><dd> Stay informed without hassle using NewsRadar's user-friendly interface, providing you with the latest news updates at your fingertips.</dd>
+</dl>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📌 Screenshots:
+![home](/img/home.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<h2>📬 Contact</h2>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you want to contact me, you can reach me through below handles.
 
-### Code Splitting
+[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/akshat-jaiswal-4664a2197)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+© 2023 Akshat Jaiswal
 
-### Analyzing the Bundle Size
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
