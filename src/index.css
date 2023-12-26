@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.paragraph-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.paragraph-ellipsis-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fa {
+  color: #e90606;
+  margin: 0 0.3rem;
+  font-size: 1.1rem;
+  animation: pound 0.35s infinite alternate;
+}
+@keyframes pound {
+  100% {
+    transform: scale(1.2);
+  }
+}
+html {
+  font-size: 99%;
+}
+@media screen and (max-width: 350px) {
+  html {
+    font-size: 88%;
+  }
+}
