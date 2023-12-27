@@ -62,7 +62,7 @@ export class News extends Component {
     this.props.setProgress(70);
     this.setState({
       articles: data.data.articles,
-      totalResults: data.totalResults,
+      totalResults: data.data.totalResults,
       loading: false
     })
     this.props.setProgress(100);
