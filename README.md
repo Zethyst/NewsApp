@@ -2,7 +2,7 @@
 
 <p>NewsRadar is a sleek and modern news website built to deliver the latest and most relevant news to users. With a user-friendly interface and a wide range of categories, NewsRadar keeps you informed on everything that matters. Developed with React.js, this project showcases responsive design, efficient user interactions, and seamless navigation. Stay updated with NewsRadar, your go-to news destination! </p>
 
-[Visit Now](https://zethyst.github.io/Newsapp/) 🚀
+[Visit Now](https://zethyst.github.io/NewsApp/) 🚀
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -22,6 +22,8 @@ You may also see any lint errors in the console.
 **Backend:**
 
 ![nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)&nbsp;
+![expressjs](https://img.shields.io/badge/Express.js-F7DF1E?style=for-the-badge&logo=express&logoColor=black)&nbsp;
+![axios](https://img.shields.io/badge/Axios-20232A?style=for-the-badge&logo=axios&logoColor=61DAFB)&nbsp;
 
 **Deployed On:**
 
