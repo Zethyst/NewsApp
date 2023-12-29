@@ -18,7 +18,7 @@ app.post("/news", async (req, res) => {
   try {
     const { country, category, query, page, pageSize } = req.body;
     if (query) {
-      var url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&language=en&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`
+      var url = `https://newsapi.org/v2/everything?q=${query+" "}&sortBy=popularity&language=en&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`
     }
     else{
       var url = `https://newsapi.org/v2/top-headlines?&country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;

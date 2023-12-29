@@ -119,7 +119,7 @@ export class News extends Component {
       <>
         <div className="-my-1  overflow-hidden min-h-[74vh]">
           <h1 className="text-2xl font-bold text-center mx-2">
-            NewsRadar - Top {this.capitalize(this.props.category)} Headlines
+            NewsRadar - Top {this.props.query?this.capitalize(this.props.query):this.capitalize(this.props.category)} Headlines
           </h1>
           {this.state.loading && (
             <div className="flex justify-center space-x-32 mx-4 my-4 w-[full] md:w-[74rem]">
