@@ -7,8 +7,8 @@ import SignatureFooter from './SignatureFooter';
 import axios from "axios";
 //   GET https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=183d2c5864504ce0bfa355cf205526bd
 
-// const baseURL = 'https://newsradar-api.onrender.com';
-const baseURL = 'http://localhost:5000';
+const baseURL = 'https://newsradar-api.onrender.com';
+// const baseURL = 'http://localhost:5000';
 export class News extends Component {
 
  
