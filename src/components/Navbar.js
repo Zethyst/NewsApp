@@ -10,7 +10,6 @@ export class Navbar extends Component {
             category: "General",
             searchInput: ''
         };
-
     }
 
     handleInputChange = (e) => {
@@ -31,6 +30,7 @@ export class Navbar extends Component {
         this.setState({
             category: c
         })
+        this.toggleNavbar();
     }
     handleEnterKey = (event) => {
         if (event.key === 'Enter') {
@@ -54,7 +54,7 @@ export class Navbar extends Component {
                                 <div className="col-12 block md:flex md:justify-center">
                                     <nav className="navbar navbar-expand-md navbar-light">
                                     <div className="flex items-center justify-between w-full">
-                                        <Link className="navbar-brand hover:text-[#6537ac]" to='/Newsapp-Frontend' style={{ fontWeight: "600" }}>
+                                        <Link className="navbar-brand hover:text-[#6537ac]" to='/NewsApp' style={{ fontWeight: "600" }}>
                                             {/* <i className="fa-solid fa-newspaper mr-3" style={{ scale: "1.4" }}></i> */}
                                             <ion-icon className="" name="newspaper-outline" style={{ scale: "1.4", transform: "translate(-4px)" }}></ion-icon>
                                             <span>NewsRadar</span>
@@ -75,7 +75,7 @@ export class Navbar extends Component {
 
                                             <ul className="flex flex-col md:flex-row items-start space-x-4 py-4 py-md-0 opacity-100">
                                                 <li className={this.state.category === "General" ? 'nav-item pl-4 pl-md-0 ml-0 ml-md-4 active' : 'nav-item pl-4 pl-md-0 ml-0 ml-md-4'}>
-                                                    <NavLink className="nav-link dropdown-toggle"  to="/Newsapp-Frontend" onClick={this.handleClick}>All</NavLink>
+                                                    <NavLink className="nav-link dropdown-toggle"  to="/NewsApp" onClick={this.handleClick}>All</NavLink>
                                                 </li>
                                                 <li className={this.state.category === "Business" ? 'nav-item pl-4 pl-md-0 ml-0 ml-md-4 active' : 'nav-item pl-4 pl-md-0 ml-0 ml-md-4'} >
                                                     <Link className="font-medium nav-link dropdown-toggle text-gray-700 " to="/business" onClick={this.handleClick}>Business</Link>

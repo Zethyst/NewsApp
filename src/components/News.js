@@ -42,10 +42,6 @@ export class News extends Component {
   }
 
   async updateNews() {
-    const headers = new Headers({
-      'User-Agent': 'Newsapp',
-      'X-Api-Key': '183d2c5864504ce0bfa355cf205526bd',
-    });
     try {
       this.props.setProgress(10);
       // let url = `https://newsapi.org/v2/top-headlines?q=${this.props.query}&country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`

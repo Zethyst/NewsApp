@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import News from './components/News';
@@ -10,24 +9,11 @@ import {
 } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar';
 
-// const express = require("express")
-// const app = express();
-// const port = 5000;
-// var request=require("request"); 
-
-// app.get("/", (req, res) => {
-//   res.send("Hello Mate");
-// })
-
-// app.listen(port, () => {
-//   console.log(`Listening on port ${port}`);
-// })
-
 class App extends Component {
 
   // pageSize=5;
 
-  apikey = '183d2c5864504ce0bfa355cf205526bd';
+  apikey = process.env.REACT_APP_NEWS_API;
   constructor() {
     super();
     this.state = {
