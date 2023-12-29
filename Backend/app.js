@@ -1,28 +1,33 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
-// const request = require("request");
-const cors=require("cors");
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
+const cors = require("cors");
+require('dotenv').config();
 
-app.use(cors(corsOptions))
+const apiKey = process.env.API_KEY;
+const corsOptions = {
+  origin: "*",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
 
-app.get("/news", async (req, res) => {
+app.use(cors(corsOptions));
+app.use(express.json());
 
-  // const { country, category, query, page, pageSize } = req.body;
-  // console.log(req.body);
-  let url = `https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=183d2c5864504ce0bfa355cf205526bd&page=1&pageSize=9`;
-  let response = await fetch(url);
-  let data = await response.json();
-  //   console.log(data);
-  res.json({ data });
-
+app.post("/news", async (req, res) => {
+  try {
+    const { country, category, query, page, pageSize } = req.body;
+    let url = `https://newsapi.org/v2/top-headlines?q=${query}&country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+    let response = await fetch(url);
+    let data = await response.json();
+    //   console.log(data);
+    res.json(data);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server error" });
+  }
 });
 
 app.listen(port, () => {
-  console.log(`Listening on port number: ${port}`);
+  console.log(`[+] Listening on port number: ${port}`);
 });

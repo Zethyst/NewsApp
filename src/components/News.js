@@ -7,8 +7,8 @@ import SignatureFooter from './SignatureFooter';
 import axios from "axios";
 //   GET https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=183d2c5864504ce0bfa355cf205526bd
 
-const baseURL = 'https://newsradar-api.onrender.com';
-// const baseURL = 'http://localhost:5000';
+// const baseURL = 'https://newsradar-api.onrender.com';
+const baseURL = 'http://localhost:5000';
 export class News extends Component {
 
  
@@ -48,21 +48,21 @@ export class News extends Component {
     });
     try {
       this.props.setProgress(10);
-      let url = `https://newsapi.org/v2/top-headlines?q=${this.props.query}&country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
+      // let url = `https://newsapi.org/v2/top-headlines?q=${this.props.query}&country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
     this.setState({ loading: true });
     // let response = await fetch(url,{ headers });
-    const {country, query, category, page, pageSize } = this.props;
-
-    const { data } = await axios(
-      `${baseURL}/news`
+    const {country, query, category, pageSize } = this.props;
+    const page = this.state.page;
+    const { data } = await axios.post(
+      `${baseURL}/news`, {country, query, category, page, pageSize }
     );
-    console.log(data);
+    // console.log(data);
     this.props.setProgress(30);
     // let data = await response.json();
     this.props.setProgress(70);
     this.setState({
-      articles: data.data.articles,
-      totalResults: data.data.totalResults,
+      articles: data.articles,
+      totalResults: data.totalResults,
       loading: false
     })
     this.props.setProgress(100);
@@ -81,10 +81,15 @@ export class News extends Component {
   fetchMoreData = async () => {
     setTimeout(async ()=>{
       
-    let url = `https://newsapi.org/v2/top-headlines?q=${this.props.query}&country=${this.props.country}&category=${this.props.category}&apiKey=183d2c5864504ce0bfa355cf205526bd&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`
+    // let url = `https://newsapi.org/v2/top-headlines?q=${this.props.query}&country=${this.props.country}&category=${this.props.category}&apiKey=183d2c5864504ce0bfa355cf205526bd&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`
+    const {country, query, category, pageSize } = this.props;
+    const page = this.state.page + 1;
+    const { data } = await axios.post(
+      `${baseURL}/news`, {country, query, category, page, pageSize }
+    );
     this.setState({ page: this.state.page + 1 })
-    let response = await fetch(url);
-    let data = await response.json();
+    // let response = await fetch(url);
+    // let data = await response.json();
     this.setState({
       articles: this.state.articles.concat(data.articles), //concatinating new items to previous items
       totalResults: data.totalResults,
