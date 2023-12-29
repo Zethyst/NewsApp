@@ -18,10 +18,18 @@ export class Navbar extends Component {
     };
 
     handleSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         this.setState({ searchInput: e.target.value });
-        this.props.onSearch(this.state.searchInput);
+        // this.props.onSearch(this.state.searchInput);
     };
+
+    componentDidUpdate(prevProps, prevState) {
+        // Check if the searchInput state has changed
+        if (prevState.searchInput !== this.state.searchInput) {
+
+          this.props.onSearch(this.state.searchInput);
+        }
+      }
 
     handleClick = async (event) => {
         let c = event.currentTarget.textContent;
