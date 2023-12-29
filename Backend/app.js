@@ -17,7 +17,12 @@ app.use(express.json());
 app.post("/news", async (req, res) => {
   try {
     const { country, category, query, page, pageSize } = req.body;
-    let url = `https://newsapi.org/v2/top-headlines?q=${query}&country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+    if (query) {
+      var url = `https://newsapi.org/v2/everything?q=${query}&sortBy=popularity&language=en&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`
+    }
+    else{
+      var url = `https://newsapi.org/v2/top-headlines?&country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+    }
     let response = await fetch(url);
     let data = await response.json();
     //   console.log(data);

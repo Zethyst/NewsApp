@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 //Type rce for react class component
 export class Navbar extends Component {
 
@@ -28,8 +29,10 @@ export class Navbar extends Component {
             c = "General";
         }
         this.setState({
-            category: c
+            category: c,
+            searchInput: ''
         })
+        this.props.onSearch(this.state.searchInput);
         this.toggleNavbar();
     }
     handleEnterKey = (event) => {
@@ -56,7 +59,8 @@ export class Navbar extends Component {
                                     <div className="flex items-center justify-between w-full">
                                         <Link className="navbar-brand hover:text-[#6537ac]" to='/NewsApp' style={{ fontWeight: "600" }}>
                                             {/* <i className="fa-solid fa-newspaper mr-3" style={{ scale: "1.4" }}></i> */}
-                                            <ion-icon className="" name="newspaper-outline" style={{ scale: "1.4", transform: "translate(-4px)" }}></ion-icon>
+                                            <NewspaperIcon style={{ scale: "1.2", transform: "translate(-5px,-2px)" }}/>
+                                            {/* <ion-icon className="" name="newspaper-outline" style={{ scale: "1.4", transform: "translate(-4px)" }}></ion-icon> */}
                                             <span>NewsRadar</span>
                                         </Link>
 
