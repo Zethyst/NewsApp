@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Skeleton from './Skeleton';
 import SignatureFooter from './SignatureFooter';
+import axios from 'axios';
 //   GET https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=183d2c5864504ce0bfa355cf205526bd
+const baseURL="https://newsradar-api.onrender.com";
 
 export class News extends Component {
-
- 
 
   static defaultProps = {
     country: "in",
@@ -24,7 +24,6 @@ export class News extends Component {
     query: PropTypes.string
   }
 
-
   capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -36,25 +35,21 @@ export class News extends Component {
       page: 1,
       totalResults: 0
     }
+    this.fetchMoreData = this.fetchMoreData.bind(this);
   }
 
-  async updateNews() {
-
+  async updateNews(){
     this.props.setProgress(10);
-    try {
-      const response = await fetch("/api/news"); // Fetch data from your Express server
-      const data = await response.json();
-  
-      this.props.setProgress(70);
-      this.setState({
-        articles: data.articles,
-        totalResults: data.totalResults,
-        loading: false
-      });
-      this.props.setProgress(100);
-    } catch (error) {
-      console.error("Failed to fetch news data:", error);
-    }
+    // let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    this.setState({loading:true});
+    const {country,query,category,pageSize}=this.props
+    const page = this.state.page;
+    this.props.setProgress(30);
+    const {data}=await axios.post(`${baseURL}/news`,{country,query,category,page,pageSize})
+    // let parsedData=await data.json();
+    this.props.setProgress(70);
+    this.setState({articles:data.articles, loading:false,totalResults:data.totalResults});
+    this.props.setProgress(100);
   }
 
   async componentDidMount() {
@@ -64,24 +59,21 @@ export class News extends Component {
     document.title = `${this.capitalize(this.props.category)} - NewsRadar`;
   }
   async fetchMoreData() {
-    // this.props.setProgress(10);
-  
-    const { page, pageSize, category, query, country } = this.props;
-  
-    try {
-      const response = await fetch(`/api/more-news?page=${page + 1}&pageSize=${pageSize}&category=${category}&query=${query}&country=${country}`);
-      const data = await response.json();
-  
-      // this.props.setProgress(70);
-      this.setState((prevState) => ({
-        articles: [...prevState.articles, ...data.articles], // Concatenating new items to previous items
-        totalResults: data.totalResults,
-        page: prevState.page + 1,
+    this.setState(prevState => ({
+      page: prevState.page + 1
+    }), async () => {
+      this.props.setProgress(30);
+      const {country, query, category, pageSize} = this.props;
+      const {page} = this.state;
+      const {data} = await axios.post(`${baseURL}/news`, {country, query, category, page, pageSize});
+      this.props.setProgress(70);
+      this.setState(prevState => ({
+        articles: prevState.articles.concat(data.articles),
+        loading: false,
+        totalResults: data.totalResults
       }));
-      // this.props.setProgress(100);
-    } catch (error) {
-      console.error("Failed to fetch more news data:", error);
-    }
+      this.props.setProgress(100);
+    });
   }
   // handleReq = async (event) => {
   //   let p = event.currentTarget.textContent;
