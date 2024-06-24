@@ -56,7 +56,7 @@ class App extends Component {
           <Navbar onSearch={this.handleSearch} />
           <LoadingBar color='#f11946' height={3} progress={this.state.progress} />
           <Routes>
-            <Route exact path="/Newsapp" element={<News setProgress={this.setProgress} key="general" apiKey={this.apikey} pageSize={9} country="in" category="general" query={this.state.searchQuery} />} />
+            <Route exact path="/NewsApp" element={<News setProgress={this.setProgress} key="general" apiKey={this.apikey} pageSize={9} country="in" category="general" query={this.state.searchQuery} />} />
             <Route exact path="/business" element={<News setProgress={this.setProgress} key="business" apiKey={this.apikey} pageSize={9} country="in" category="business" query={this.state.searchQuery} />} />
             <Route exact path="/entertainment" element={<News setProgress={this.setProgress} key="entertainment" apiKey={this.apikey} pageSize={9} country="in" category="entertainment" query={this.state.searchQuery} />} />
             <Route exact path="/health" element={<News setProgress={this.setProgress} key="health" apiKey={this.apikey} pageSize={9} country="in" category="health" query={this.state.searchQuery} />} />
