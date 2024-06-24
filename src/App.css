@@ -25,6 +25,21 @@ body{
 	background-color: #8167a9;
 }
 
+/* Scroll Bar */
+::-webkit-scrollbar {
+	width: 0.4rem;
+	height: 0.3rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+	border-radius: 12px;
+	background: #c1b8c5d4;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	border-radius: 12px;
+	background: #8167a9
+  }
 
 /* #Navigation
 ================================================== */

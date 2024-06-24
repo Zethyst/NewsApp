@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import NewItem from './NewItem'
-import Spinner from './Spinner';
 import PropTypes from 'prop-types';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Skeleton from './Skeleton';
@@ -127,11 +126,11 @@ export class News extends Component {
   // fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`)
   render() {
     return (
-      <>
-        <div className="-my-1  overflow-hidden min-h-[74vh]">
+      <div className='relative'>
+        <div className="-my-1  overflow-hidden min-h-[87vh] pb-20">
           <h1 className='text-2xl font-bold text-center mx-2'>NewsRadar - Top {this.capitalize(this.props.category)} Headlines</h1>
           {this.state.loading && (
-          <div className="flex justify-center space-x-32 mx-4 my-4 w-[full] md:w-[74rem]">
+          <div className="flex justify-center space-x-32 mx-4 my-4 w-[full]">
             {this.renderSkeletons()}
           </div>
         )}
@@ -142,7 +141,7 @@ export class News extends Component {
             loader={
               <div className="flex justify-center ml-4">
                 <div className='space-x-32 my-4 w-[full] md:w-[64rem] row overflow-hidden'>
-              {this.renderSkeletons()}
+                  {this.renderSkeletons()}
                 </div>
             </div>
               }
@@ -178,7 +177,7 @@ export class News extends Component {
           </div> */}
         </div>
         <SignatureFooter/>
-      </>
+      </div>
     )
   }
 }
